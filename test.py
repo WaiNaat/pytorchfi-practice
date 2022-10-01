@@ -132,9 +132,9 @@ if __name__ == '__main__':
     # 실험 환경 설정
     experiment_id = 1
     model_name = "vgg11_bn"
-    model = torch.hub.load("chenyaofo/pytorch-cifar-models", "cifar100_" + model_name, pretrained=False)
-    print(model)
-    model.load_state_dict(torch.hub.load_state_dict_from_url(get_state_dict_url(model_name, 'cifar100')))
+    model = torch.hub.load("chenyaofo/pytorch-cifar-models", "cifar100_" + model_name, pretrained=True)
+    #print(model)
+    #model.load_state_dict(torch.hub.load_state_dict_from_url(get_state_dict_url(model_name, 'cifar100')))
     save_dir = model_name + '_id' + str(experiment_id) + '_cifar100'
 
     seed = 12345678
