@@ -11,8 +11,8 @@ from bitstring import BitArray
 
 import vessl
 
-#import pytorchfi
-from pytorchfi import *
+import pytorchfi
+#from pytorchfi import *
 from pytorchfi.core import FaultInjection
 from pytorchfi.neuron_error_models import random_neuron_location
 
