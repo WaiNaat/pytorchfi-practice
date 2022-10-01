@@ -16,6 +16,8 @@ import pytorchfi
 from pytorchfi.core import FaultInjection
 from pytorchfi.neuron_error_models import random_neuron_location
 
+from geturl import get_state_dict_url
+
 vessl.init()
 
 class custom_single_bit_flip(FaultInjection):
@@ -130,7 +132,8 @@ if __name__ == '__main__':
     # 실험 환경 설정
     experiment_id = 1
     model_name = "vgg11_bn"
-    model = torch.hub.load("chenyaofo/pytorch-cifar-models", "cifar100_" + model_name, pretrained=True)
+    model = torch.hub.load("chenyaofo/pytorch-cifar-models", "cifar100_" + model_name, pretrained=False)
+    model.load_state_dict(torch.hub.load_state_dict_from_url(get_state_dict_url(model_name, 'cifar100')))
     save_dir = model_name + '_id' + str(experiment_id) + '_cifar100'
 
     seed = 12345678
