@@ -169,7 +169,7 @@ if __name__ == '__main__':
         ]
     )
 
-    data = torchvision.datasets.CIFAR100(root='./data', train=False, download=True, transform=transform)
+    data = torchvision.datasets.CIFAR100(root='/input', train=False, download=True, transform=transform)
     dataset = torch.utils.data.DataLoader(data, batch_size=batch_size, shuffle=False, num_workers=0, drop_last=True)
 
     # single bit flip을 일으킬 모델 만들기
